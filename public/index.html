@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko" style="background:#080808">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="BBDESIGN — 디자인과 이야기를 모아둔 작은 아카이브.">
+<title>BBDESIGN — Portfolio</title>
+<link rel="preload" href="/fonts/Anton-Regular.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="/portfolio.css?v=folder-dark-7"><script src="/app.js" defer></script>
+<link rel="stylesheet" href="/title-font.css?v=main-titles-8"></head>
+<body class="public-site" style="background:#080808;color:#f8f7ed">
+<a class="skip" href="#main">본문으로 이동</a>
+<header class="header">
+<a class="brand" href="#" aria-label="BBDESIGN 홈"><span class="brand-name">BBDESIGN</span><span class="brand-dot">®</span></a>
+
+</header>
+<main id="main">
+
+<p id="load-error" role="alert" hidden></p>
+<div class="folders">
+<section id="info-folder" class="folder folder-info">
+<h1 class="folder-heading"><button class="folder-tab" data-folder="info" aria-expanded="false" aria-controls="info"><span>INFO</span><span class="folder-symbol" aria-hidden="true">+</span></button></h1>
+<div id="info" class="folder-content" hidden>
+<div class="section-meta"><span>01 / A LITTLE ABOUT ME</span><span>소개와 소식</span></div>
+<div class="info-layout"><h2 id="intro"></h2><div class="info-details"><p id="bio"></p><div class="info-block"><span class="eyebrow">NOTICE</span><p id="notice"></p></div></div></div>
+</div>
+</section>
+<section id="contact-folder" class="folder folder-contact">
+<h1 class="folder-heading"><button class="folder-tab" data-folder="contact" aria-expanded="false" aria-controls="contact"><span>CONTACT</span><span class="folder-symbol" aria-hidden="true">+</span></button></h1>
+<div id="contact" class="folder-content" hidden>
+<div class="section-meta"><span>02 / GET IN TOUCH</span><span>새로운 연결</span></div>
+<div class="contact-layout"><h2 id="contact-heading">LET’S MAKE<br>SOMETHING GOOD.</h2><div><p id="contact-body">함께 만들고 싶은 것이 있나요?<br>프로젝트와 협업 이야기를 들려주세요.</p><div id="contact-address"></div></div></div>
+</div>
+</section>
+<section id="portfolio-folder" class="folder folder-portfolio">
+<h1 class="folder-heading"><button class="folder-tab" data-folder="portfolio" aria-expanded="false" aria-controls="portfolio"><span>PORTFOLIO</span><span class="folder-symbol" aria-hidden="true">+</span></button></h1>
+<div id="home-preview"><div id="preview-grid" class="grid preview-grid"></div><p id="preview-note" class="sample-note" hidden>레이아웃 예시 · 작업을 등록하면 실제 콘텐츠로 표시됩니다.</p></div>
+<div id="portfolio" class="folder-content" hidden>
+<div class="section-meta"><span>03 / SELECTED WORK</span><span id="work-count"></span></div>
+<div class="filter-bar"><div id="filters" class="filters" role="group" aria-label="카테고리"></div><span class="gallery-label">THE WORK INDEX ↘</span></div>
+<p id="sample-note" class="sample-note" hidden>레이아웃 예시 · 첫 작업을 등록하면 나의 포트폴리오로 바뀝니다.</p>
+<div id="grid" class="grid"></div><p id="empty-work" class="sample-note" hidden>아직 등록된 작업이 없습니다.</p>
+</div>
+</section>
+</div>
+</main>
+<footer><span>© <span id="year"></span> <span id="footer-name">BBDESIGN</span></span><a href="/admin">관리자 ↗</a></footer>
+<dialog id="project-dialog"><div class="dialog-top"><span class="eyebrow" id="detail-category"></span><button id="close-dialog" class="text-button" aria-label="작업 상세 닫기">닫기 ×</button></div><h2 id="detail-title"></h2><p id="detail-description"></p><div id="detail-images"></div></dialog>
+</body></html>
