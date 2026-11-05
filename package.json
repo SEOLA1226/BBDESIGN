@@ -1,1 +1,16 @@
-{"name":"bbdesign-portfolio","version":"1.0.0","private":true,"type":"module","engines":{"node":">=24"},"scripts":{"start":"node server.js","dev":"node --watch server.js","test":"node --test","check":"node --check server.js && node --check public/app.js && node --check public/admin.js"}}
+{
+  "name": "bbdesign-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test",
+    "check": "node --check server.js && node --check public/app.js && node --check public/admin.js && node --check public/backend.js && node --check scripts/build-static.mjs",
+    "build": "node scripts/build-static.mjs"
+  }
+}

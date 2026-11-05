@@ -4,7 +4,11 @@
 
 폰트는 `public/fonts`에서 직접 제공됩니다. Anton은 SIL Open Font License이며 라이선스는 같은 디렉터리의 `OFL.txt`에 포함되어 있습니다.
 
-## 실행
+## 무료 공개 배포
+
+[FREE-DEPLOY.md](FREE-DEPLOY.md)에 Cloudflare Pages + Supabase Free 설정을 단계별로 정리했습니다. 이 구성은 사이트 화면을 정적으로 호스팅하고 관리자 로그인·글·이미지를 Supabase에 저장합니다. 관리자 페이지에서는 Supabase에서 만든 이메일과 비밀번호를 사용합니다. 무료 사용량 제한과 비활성 프로젝트 일시정지 조건은 안내문을 확인하세요.
+
+## 로컬 실행
 
 Node.js 24 이상이 필요합니다. 외부 패키지 설치나 빌드 없이 실행합니다.
 
@@ -15,7 +19,7 @@ npm start
 
 기본 포트는 3000입니다. `PORT`, `HOST`로 변경할 수 있습니다. 개발 중 서버 자동 재시작은 `npm run dev`를 사용합니다.
 
-## 관리자 사용
+## 로컬 서버의 관리자 사용
 
 1. 사이트 하단 **관리자 ↗** 또는 `/admin`으로 이동합니다.
 2. 첫 실행 시 생성되는 `.data/initial-admin-password.txt` 파일의 비밀번호로 로그인합니다. 이 파일은 웹에서 접근할 수 없고 Git에도 포함되지 않습니다.
@@ -38,7 +42,7 @@ npm start
 - `COOKIE_SECURE=true`: HTTPS로 공개 배포할 때 설정합니다. HTTPS 리버스 프록시는 원래 Host와 Origin을 보존해야 합니다.
 - 관리자 로그인은 8시간 유지되며 서버 재시작 시 다시 로그인합니다.
 
-현재 작업은 개발 환경에 구현되어 있으며 공개 도메인 배포는 별도입니다. 단일 서버용 SQLite 구성입니다.
+로컬 개발은 단일 서버용 SQLite 구성이고, 무료 공개 배포는 별도의 Supabase 구성을 사용합니다. 로컬 데이터가 Supabase로 자동 복사되지는 않습니다.
 
 ## 검증
 
@@ -50,3 +54,7 @@ npm test
 다운로드한 HTML은 화면 확인용이며 관리자 저장 기능은 Node 서버에서 실행되는 `/admin`에서 사용합니다.
 
 통합 테스트는 별도의 임시 데이터베이스로 섹션 설정의 인증·검증·보존, 소개/연락처 부분 수정 시 기존 내용 보존, 인증, 잘못된 업로드 거부, 작업 등록·수정·삭제, 공지 저장, 재시작 후 데이터 유지, 비밀번호 변경, 비공개 파일 접근 차단을 검증합니다.
+
+무료 빌드 검증: `SUPABASE_URL`과 `SUPABASE_PUBLISHABLE_KEY`를 설정하고 `npm run build`를 실행합니다. `dist`에는 공개 설정과 정적 파일만 포함됩니다. 테스트용 키로 만든 빌드는 실제 사이트에 사용하지 않습니다.
+
+Supabase 권한 정책은 PostgreSQL 17에서 익명·일반 사용자·소유자별로 검증했습니다. `test/rls-bootstrap.sql`은 로컬 검증 전용이며 실제 Supabase에 실행하지 않습니다. 실제 프로젝트에는 `supabase/setup.sql`과 `supabase/owner.sql`만 사용합니다.
